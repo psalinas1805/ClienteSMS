@@ -1,0 +1,7 @@
+<div id="chat-mensajes">
+    <ul class="list-group-item" *ngFor="let message of enviados">
+      <li>
+          {{message.timestamp | date:'yy-MM-dd hh:mm:ss'}}: {{ message.phone }} {{ message.text }}
+      </li>  
+    </ul>
+</div>

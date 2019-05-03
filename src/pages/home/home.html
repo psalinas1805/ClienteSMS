@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <h1 text-center>Gnokii {{count}}</h1>
+
+    </ion-navbar>
+
+    <ion-grid no-padding>
+        <ion-row>
+            <ion-col no-padding>
+                <ion-item style="padding-left: 4px; padding-right: 0px;">
+                    <ion-label><small>Limite</small></ion-label>
+                    <ion-input #input type="number" [(ngModel)]="config.limit" placeholder=""></ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col no-padding>
+                <ion-item no-padding>
+                    <ion-label><small>Sleep</small></ion-label>
+                    <ion-input #input type="number" [(ngModel)]="config.sleep" placeholder=""></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col no-padding>
+                <ion-item no-padding>
+                    <ion-label><small>Interval</small></ion-label>
+                    <ion-input #input type="number" [(ngModel)]="config.interval" placeholder=""></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <button ion-button block type="button" (click)="saveConfig()">Guardar</button>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-card>
+        <ion-list class="list-group-item">
+            <ion-item *ngFor="let message of enviados">
+                <!--ion-item *ngFor="let message of enviados" [ngStyle]="{'background-color':message.ack? 'green' : 'red' }"-->
+                {{message.timestamp | date:'HH:mm:ss'}} - {{ message.number }}: {{ message.text }}
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>
+
+
+<ion-footer>
+    <button ion-button text-center block icon-only (click)="presentPopover($event)">
+      <ion-icon name="mail"></ion-icon>
+      Manual 
+    </button>
+</ion-footer>

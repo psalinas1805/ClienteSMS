@@ -1,0 +1,17 @@
+<ion-card>
+    <form [formGroup]="forma" (ngSubmit)="sendSMSManual()">
+        <ion-label text-center>
+            <h2>Prueba Manual</h2>
+        </ion-label>
+        <hr>
+        <ion-item>
+            <ion-label>Celular</ion-label>
+            <ion-input #input type="text" formControlName="phone" placeholder="largo 9 o 11"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Texto</ion-label>
+            <ion-textarea formControlName="message" placeholder="Máximo 160"></ion-textarea>
+        </ion-item>
+        <button ion-button block [disabled]="!forma.valid" type="submit">Enviar</button>
+    </form>
+</ion-card>
